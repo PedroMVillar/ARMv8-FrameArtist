@@ -102,3 +102,7 @@ docker exec -it rpi-qemu /bin/bash
 - **Makefile:** Script to build and run the project.
 
 ## Authors
+
+- [**Villar Pedro**](https://github.com/PedroMVillar)
+- [**Grisetti Gustavo**](https://github.com/GustavoGrisetti)
+- [**]
