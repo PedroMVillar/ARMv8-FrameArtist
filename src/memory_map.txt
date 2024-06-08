@@ -1,0 +1,161 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD app.o
+LOAD background.o
+LOAD cajacable.o
+LOAD chica.o
+LOAD data.o
+LOAD dynamic.o
+LOAD estantes.o
+LOAD figures.o
+LOAD frente.o
+LOAD papeles.o
+LOAD planta.o
+LOAD start.o
+LOAD tablero.o
+LOAD utils.o
+LOAD ventilacion.o
+                0x0000000000080000                . = 0x80000
+
+.text           0x0000000000080000    0x900c8
+ *(.text.boot)
+ .text.boot     0x0000000000080000    0x100c8 start.o
+                0x0000000000080000                _start
+ *(.text*)
+ .text          0x00000000000900c8        0x0 app.o
+ .text          0x00000000000900c8        0x0 background.o
+ .text          0x00000000000900c8        0x0 cajacable.o
+ .text          0x00000000000900c8        0x0 chica.o
+ .text          0x00000000000900c8        0x0 data.o
+ .text          0x00000000000900c8        0x0 dynamic.o
+ .text          0x00000000000900c8        0x0 estantes.o
+ .text          0x00000000000900c8        0x0 figures.o
+ .text          0x00000000000900c8        0x0 frente.o
+ .text          0x00000000000900c8        0x0 papeles.o
+ .text          0x00000000000900c8        0x0 planta.o
+ .text          0x00000000000900c8    0x80000 start.o
+ .text          0x00000000001100c8        0x0 tablero.o
+ .text          0x00000000001100c8        0x0 utils.o
+ .text          0x00000000001100c8        0x0 ventilacion.o
+
+.iplt           0x00000000001100c8        0x0
+ .iplt          0x00000000001100c8        0x0 app.o
+
+.rela.dyn       0x00000000001100c8        0x0
+ .rela.iplt     0x00000000001100c8        0x0 app.o
+ .rela.text.boot
+                0x00000000001100c8        0x0 app.o
+
+.data           0x00000000001100c8     0x8a58
+ .data          0x00000000001100c8       0x48 app.o
+                0x00000000001100e4                main
+ .data          0x0000000000110110      0x384 background.o
+                0x0000000000110120                makeBackground
+ .data          0x0000000000110494      0x454 cajacable.o
+                0x00000000001104a4                makeCables
+                0x00000000001108ac                makeLuzCruz
+ .data          0x00000000001108e8     0x3304 chica.o
+                0x00000000001108f8                makeCuerpo
+                0x00000000001118a0                makeFace
+                0x00000000001121c4                makeRightHand
+                0x00000000001122dc                makeLeftHand
+                0x0000000000112cb4                makeLupa
+                0x00000000001134a8                drawOjoIzquierdo
+                0x0000000000113524                drawOjoDerecho
+                0x00000000001135b4                pintarOjoBlanco
+                0x00000000001136d8                taparOjos
+                0x0000000000113910                parpadeo
+                0x0000000000113ac4                pintarOjoCompleto
+ .data          0x0000000000113bec       0x10 data.o
+ .data          0x0000000000113bfc      0x1bc dynamic.o
+                0x0000000000113c18                dynamic
+ .data          0x0000000000113db8      0xf74 estantes.o
+                0x0000000000113dc8                makeEstantes
+                0x0000000000114a0c                normalAgua
+                0x0000000000114a8c                efectoAgua
+                0x0000000000114b0c                drawOjosGatito
+                0x0000000000114b50                drawParpadeoGatito
+                0x0000000000114b94                drawFondoFrasco
+ .data          0x0000000000114d2c      0x2d0 figures.o
+                0x0000000000114d3c                drawRectangle
+                0x0000000000114d84                drawCircle
+                0x0000000000114e04                drawCuatroPuntos
+                0x0000000000114e70                drawCincoPuntos
+                0x0000000000114eec                drawCross
+                0x0000000000114f64                drawDiagonalInfDer
+                0x0000000000114fb0                drawDiagonalSupDer
+ .data          0x0000000000114ffc      0xbfc frente.o
+                0x000000000011500c                makeFrascos
+                0x0000000000115abc                drawDestelloON1
+                0x0000000000115af0                drawDestelloON2
+                0x0000000000115b24                drawBichito
+                0x0000000000115b68                drawBichitoDinamico
+ .data          0x0000000000115bf8      0xecc papeles.o
+                0x0000000000115c08                makePapeles
+ .data          0x0000000000116ac4     0x15ac planta.o
+                0x0000000000116ad4                makeSombraPlanta
+                0x00000000001170a4                makePlanta
+ .data          0x0000000000118070        0x0 start.o
+ .data          0x0000000000118070      0x848 tablero.o
+                0x0000000000118080                makeTablero
+                0x0000000000118164                makeDisplays
+                0x000000000011840c                makeButtons
+                0x0000000000118728                makeLucesCuadradasTablero
+                0x0000000000118764                makeLucesAmarillasTablero
+ .data          0x00000000001188b8       0x1c utils.o
+ .data          0x00000000001188d4      0x24c ventilacion.o
+                0x00000000001188e4                makeVentilacion
+
+.igot.plt       0x0000000000118b20        0x0
+ .igot.plt      0x0000000000118b20        0x0 app.o
+
+.bss            0x0000000000118b20        0x0
+ *(.bss*)
+ .bss           0x0000000000118b20        0x0 app.o
+ .bss           0x0000000000118b20        0x0 background.o
+ .bss           0x0000000000118b20        0x0 cajacable.o
+ .bss           0x0000000000118b20        0x0 chica.o
+ .bss           0x0000000000118b20        0x0 data.o
+ .bss           0x0000000000118b20        0x0 dynamic.o
+ .bss           0x0000000000118b20        0x0 estantes.o
+ .bss           0x0000000000118b20        0x0 figures.o
+ .bss           0x0000000000118b20        0x0 frente.o
+ .bss           0x0000000000118b20        0x0 papeles.o
+ .bss           0x0000000000118b20        0x0 planta.o
+ .bss           0x0000000000118b20        0x0 start.o
+ .bss           0x0000000000118b20        0x0 tablero.o
+ .bss           0x0000000000118b20        0x0 utils.o
+ .bss           0x0000000000118b20        0x0 ventilacion.o
+
+.bss            0x0000000000118b20        0x0
+                0x0000000000118b20                . = ALIGN (0x10)
+                0x0000000000118b20                __bss_start = .
+ *(.bss .bss.*)
+ *(COMMON)
+                0x0000000000118b20                __bss_end = .
+                0x0000000000118b20                _end = .
+                0x0000000000000000                __bss_size = ((__bss_end - __bss_start) >> 0x3)
+OUTPUT(kernel8.elf elf64-littleaarch64)
+LOAD linker stubs
+
+.debug_line     0x0000000000000000       0x53
+ .debug_line    0x0000000000000000       0x53 start.o
+
+.debug_info     0x0000000000000000       0x2e
+ .debug_info    0x0000000000000000       0x2e start.o
+
+.debug_abbrev   0x0000000000000000       0x14
+ .debug_abbrev  0x0000000000000000       0x14 start.o
+
+.debug_aranges  0x0000000000000000       0x30
+ .debug_aranges
+                0x0000000000000000       0x30 start.o
+
+.debug_str      0x0000000000000000       0x4d
+ .debug_str     0x0000000000000000       0x4d start.o

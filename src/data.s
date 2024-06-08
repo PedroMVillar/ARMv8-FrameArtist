@@ -1,0 +1,164 @@
+.ifndef data_s
+.equ data_s, 0
+
+
+.data
+/* ---------------- Controla el Delay! Cambiar para adaptar a su computadora --------------- */
+    delay_normal: .dword 0x05000000 // testeado en 0x09000000 y en 0x05000000
+
+/* Cosas de la pantalla */
+.equ SCREEN_WIDTH, 640
+.equ SCREEN_HEIGH, 480
+.equ BITS_PER_PIXEL, 32
+
+.equ GPIO_BASE, 0x3f200000
+.equ GPIO_GPFSEL0, 0x00
+.equ GPIO_GPLEV0, 0x34
+
+.equ VERDE_PARED1, 0x00
+.equ VERDE_PARED2, 0x2D33
+
+.equ BLANCO_HOJA1, 0x1F
+.equ BLANCO_HOJA2, 0x6F89
+
+.equ CAÑO1, 0x00
+.equ CAÑO2, 0x4A7D
+
+.equ BLANCO_PARED1, 0x00
+.equ BLANCO_PARED2, 0x4F57
+
+.equ SOMBRA_PARED1, 0x01
+.equ SOMBRA_PARED2, 0x1C29
+
+.equ NEGRO_BORDES1, 0x00
+.equ NEGRO_BORDES2, 0x0624
+
+.equ BRILLO_PARED1, 0x00
+.equ BRILLO_PARED2, 0x4C54
+
+.equ AZUL_GORRO1, 0x00
+.equ AZUL_GORRO2, 0x2C59
+
+.equ AZUL_GORRO21, 0x06
+.equ AZUL_GORRO22, 0x0E64
+
+.equ ESQUINA_HOJA1, 0x00
+.equ ESQUINA_HOJA2, 0x4A7D
+
+.equ SOMBRA1, 0x01
+.equ SOMBRA2, 0x1C29
+
+.equ PIEL1, 0xDB
+.equ PIEL2, 0xFFDB
+
+.equ PIEL_INT1, 0x8A
+.equ PIEL_INT2, 0xC789
+
+.equ PIEL_SOMBRA1, 0x4B
+.equ PIEL_SOMBRA2, 0x9271
+
+.equ AZUL_LUPA, 0x538a
+
+// ------Colores kirby -------//
+.equ ROSA_OSC1, 0xC7
+.equ ROSA_OSC2, 0x1585
+
+.equ ROSA_CLA1, 0xEE
+.equ ROSA_CLA2, 0x82EE
+
+// ------Colores-Neon--------//
+.equ VERDE_OSC1, 0x00
+.equ VERDE_OSC2, 0x5C3C
+
+.equ VERDE_FUERTE1, 0x00
+.equ VERDE_FUERTE2, 0xFF40
+
+.equ CELESTE1, 0x00
+.equ CELESTE2, 0x4F57
+
+.equ CELESTE_NEON1, 0x06
+.equ CELESTE_NEON2, 0xB5FF
+
+.equ AZUL1, 0x00
+.equ AZUL2, 0x2B57
+
+.equ ROJO_OSC1, 0xFF
+.equ ROJO_OSC2, 0x177A
+
+.equ ROJO_CLA1, 0xFF
+.equ ROJO_CLA2, 0x57BA
+
+//-------Verdes-Hojas--------//
+.equ VERDE_OSCURO1, 0x00
+.equ VERDE_OSCURO2, 0x6640
+
+.equ VERDE_MEDIO1, 0x00
+.equ VERDE_MEDIO2, 0x9154
+
+.equ VERDE_CLARO1, 0x00
+.equ VERDE_CLARO2, 0xcc71
+
+.equ BRILLO_HOJA1, 0xFF
+.equ BRILLO_HOJA2, 0xFFBF   
+
+.equ CLARO_FRASCO21, 0x1F
+.equ CLARO_FRASCO22, 0x6F89
+
+//-------Frascos--------//
+.equ BORDE_FRASCO11, 0x00
+.equ BORDE_FRASCO12, 0x4BF8
+
+.equ BORDE_FRASCO21, 0x02
+.equ BORDE_FRASCO22, 0x3563
+
+// -------Chica-------//
+.equ AZUL_CHICA1, 0x18
+.equ AZUL_CHICA2, 0xA7EB
+
+.equ AZUL_CLARO1, 0x00
+.equ AZUL_CLARO2, 0x7491
+ 
+.equ AZUL_MEDIO1, 0x22
+.equ AZUL_MEDIO2, 0x95BB
+
+.equ BLANCO1, 0xFF
+.equ BLANCO2, 0xFFFF
+
+.equ CELESTE_OJO, 0x0F
+.equ CELESTE_OJO2, 0xE7FF
+
+.equ SOMBRA_CHICA1, 0x8A
+.equ SOMBRA_CHICA2, 0xC789
+
+.equ AZUL_ILUMINADO1, 0x51
+.equ AZUL_ILUMINADO2, 0xCBCE
+
+.equ SOMBRA_CUELLO1, 0x00
+.equ SOMBRA_CUELLO2, 0x5C3C
+
+.equ SOMBRA_CUELLO11, 0x4B
+.equ SOMBRA_CUELLO12, 0x9271
+
+.equ AZUL_OJO1, 0x06
+.equ AZUL_OJO2, 0x0E64
+
+.equ AZUL_BORDES1, 0x01
+.equ AZUL_BORDES2, 0x4E7F
+
+.equ PELO_NORMAL1, 0x01
+.equ PELO_NORMAL2, 0x1D2C
+
+.equ PELO_BORDES1, 0x00
+.equ PELO_BORDES2, 0x573D
+
+.equ BORDE_LUZ1, 0x00
+.equ BORDE_LUZ2, 0xB667
+
+.equ PELO_LUZ1, 0x00
+.equ PELO_LUZ2, 0x5353
+
+// -------Otros-------//
+.equ LIBRO1, 0x15
+.equ LIBRO2, 0x4A48
+
+.endif
