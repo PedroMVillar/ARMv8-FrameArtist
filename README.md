@@ -105,4 +105,4 @@ docker exec -it rpi-qemu /bin/bash
 
 - [**Villar Pedro**](https://github.com/PedroMVillar)
 - [**Grisetti Gustavo**](https://github.com/GustavoGrisetti)
-- [**]
+- [**Testa Victoria**](https://github.com/v1sto)
